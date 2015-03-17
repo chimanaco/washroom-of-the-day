@@ -1,0 +1,33 @@
+<a ng-href="#/users/new">Add</a>
+<a ng-href="#/visualizer">Visualizer</a>
+
+<input ng-model="query" placeholder="Search for signs" autofocus> <span>{{(users|filter:query).length}}</span>
+
+<table border="1">
+  <tr>
+  	<th>&nbsp;</th>
+  	<th>Image</th>
+  	<th>Place</th>
+  	<th>Address</th>
+  	<th>Country</th>
+  	<th>Coords</th>
+  	<th>Story</th>
+  	<th>Date</th>
+  	<th>User</th>
+  </tr>
+  <tr ng-repeat="user in users | filter: query | orderBy:'date':false">
+        <td>
+          <a ng-href="#/users/{{user._id}}">edit</a>
+          <!-- <button ng-click="delete(user._id)">削除</button> -->
+
+        </td>
+        <td><img src="{{user.url}}" width="50" height="50"></td>
+        <td>{{user.place}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.country}}</td>
+        <td>{{user.coords.latitude}}, {{user.coords.longitude}}</td>
+        <td>{{user.story}}</td>
+        <td>{{user.date}}</td>
+        <td>{{user.user}}</td>
+  </tr>
+</table>

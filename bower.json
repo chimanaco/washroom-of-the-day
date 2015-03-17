@@ -1,0 +1,25 @@
+{
+  "name": "washroom",
+  "version": "0.0.0",
+  "authors": [
+    "chimanaco <chimanaco@gmail.com>"
+  ],
+  "description": "washroom of the day visualization",
+  "main": "index.js",
+  "keywords": [
+    "MEAN"
+  ],
+  "license": "MIT",
+  "homepage": "washroom.ws",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-google-maps": "~2.0.16",
+    "angular-native-picker": "~1.0.4"
+  }
+}
