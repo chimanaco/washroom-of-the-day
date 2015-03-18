@@ -1,0 +1,29 @@
+a(ng-href='/#/users/new') Add
+a(ng-href='/#/visualizer') Visualizer
+
+input(ng-model='query', placeholder='Search for signs', autofocus)
+span {{(users|filter:query).length}}
+
+table(border='1')
+    tr
+        th &nbsp;
+        th Image
+        th Place
+        th Address
+        th Country
+        th Coords
+        th Story
+        th Date
+        th User
+    tr(ng-repeat="user in users | filter: query | orderBy:'date':false")
+        td
+            a(ng-href='#/users/{{user._id}}') Edit
+        td
+            img(src="{{user.url}}", width="50", height="50")
+        td {{user.place}}
+        td {{user.address}}
+        td {{user.country}}
+        td {{user.coords.latitude}}, {{user.coords.longitude}}
+        td {{user.story}}
+        td {{user.date}}
+        td {{user.user}}

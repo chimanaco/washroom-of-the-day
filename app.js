@@ -13,7 +13,7 @@ var app = express();
 var BSON = mongodb.BSONPure;
 var db, users;
 
-app.use(express.static('front'));
+app.use(express.static('dist'));
 app.use(express.static(__dirname + '/public'));
 
 // app.use(bodyParser.json());

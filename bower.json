@@ -20,6 +20,9 @@
   ],
   "dependencies": {
     "angular-google-maps": "~2.0.16",
-    "angular-native-picker": "~1.0.4"
+    "angular-native-picker": "~1.0.4",
+    "threejs": "*",
+    "stats.js": "*",
+    "dat-gui": "~0.5.1"
   }
 }

@@ -1,29 +1,3 @@
-<!doctype html>
-<html lang="ja" ng-app="app">
-<meta charset="utf-8">
-<title>Washroom of the day</title>
-<div ng-view></div>
-<link href="css/style.css" media="all" rel="stylesheet" />
-<link href="bower_components/angular-native-picker/build/themes/classic.css" media="all" rel="stylesheet" />
-<link href="bower_components/angular-native-picker/build/themes/classic.date.css" media="all" rel="stylesheet" />
-<!-- <link href="bower_components/angular-dropdowns/dist/angular-dropdowns.css" media="all" rel="stylesheet" /> -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-route.min.js"></script>
-<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-<script src='bower_components/lodash/dist/lodash.min.js'></script>
-<script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
-<script src='bower_components/angular-native-picker/build/angular-datepicker.js'></script>
-<!-- <script src='bower_components/angular-dropdowns/dist/angular-dropdowns.min.js'></script> -->
-<!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
-<script src="data.js"></script>
-<script src="styles.js"></script>
-<script src="lib/detector.js"></script>
-<script src="lib/dat.gui.js"></script>
-<script src="lib/three.js"></script>
-<script src="lib/threejs-layer.js"></script>
-
-<script>
 var app = angular.module('app', ['ngResource', 'ngRoute', 'uiGmapgoogle-maps', 'angular-datepicker']);
   // var app = angular.module('app', ['ngResource', 'ngRoute', 'uiGmapgoogle-maps', 'angular-datepicker', 'ngDropdowns']);
 
@@ -180,5 +154,3 @@ app.config(function($routeProvider) {
         });
     }
   });
-
-</script>

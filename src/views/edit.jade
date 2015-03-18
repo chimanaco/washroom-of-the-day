@@ -1,0 +1,23 @@
+ul
+    li Image
+        input(ng-model='user.url')
+    li Place
+        input(ng-model='user.place')
+    li Address
+        input(ng-model='user.address')
+    li Country
+        input(ng-model='user.country')
+    li Latitude
+        input(ng-model='user.latitude')
+    li Longitude
+        input(ng-model='user.longitude')
+    li Story
+        input(ng-model='user.story')
+    li User
+        input(ng-model='user.user')
+    li Date
+        input(ng-model='user.date', type='text', pick-a-date='date', pick-a-date-options='options', placeholder='Select Date')
+    
+button(ng-click='edit()') Register
+
+a(ng-href='/#/users') Back

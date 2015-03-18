@@ -1,0 +1,14 @@
+span Visualizer
+a(ng-href='/#/users') Back
+
+input(ng-model='query', placeholder='Search for signs', autofocus, ng-change="change()")
+
+ui-gmap-google-map(events='map.events', center='map.center', zoom='map.zoom')
+    ui-gmap-marker(ng-repeat="m in users | filter: ddSelectSelected.text", coords="m.coords", idkey="m._id", icon="m.url" )
+        ui-gmap-window(coords="m.infoWindow.coords", isIconVisibleOnClick="true", options="m.infoWindow.options" ng-cloak)
+            div
+                p {{ m.place }}<br>{{ m.address }}<br>by {{ m.user }}!
+
+select(ng-options="sel.coords as sel.place for sel in users", ng-model="sel", ng-change="selectChange(sel)")
+    option(style="display:none", value="") select a region
+p selected: {{sel}}

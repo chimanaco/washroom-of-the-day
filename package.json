@@ -1,0 +1,38 @@
+{
+  "name": "grunt-Washroom-of-the-day",
+  "version": "0.0.1",
+  "title": " | Washroom of the day",
+  "description": "Cool Washroom sign hunting",
+  "keywords": [
+    "Washroom",
+    "トイレ",
+    "toilet",
+    "bathroom",
+    "restroom",
+    "便所"
+  ],
+  "home": "http://washroom.ws",
+  "author": {
+    "name": "chimanaco",
+    "email": "chimanaco@gmail.com"
+  },
+  "licenses": [
+    {
+      "type": "UNLICENSE",
+      "url": "http://unlicense.org/"
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jade": "^0.12.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
