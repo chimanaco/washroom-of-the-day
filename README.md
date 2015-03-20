@@ -16,4 +16,5 @@ Install:
 Run:
 <pre>$ nodemon app</pre>
 <pre>$ grunt go</pre>
+<pre>$ mongod</pre>
 
