@@ -1,0 +1,18 @@
+mixin gnav(obj)
+	nav
+		if obj == "list"
+			a(ng-href='/#/users/new') Add
+			a(ng-href='/#/visualizer') Visualizer
+			a(ng-href='/#/stats') Stats
+		if obj == "edit"
+			a(ng-href='/#/users') List
+			a(ng-href='/#/visualizer') Visualizer
+			a(ng-href='/#/stats') Stats
+		if obj == "stats"
+			a(ng-href='/#/users') List
+			a(ng-href='/#/users/new') Add
+			a(ng-href='/#/visualizer') Visualizer
+		if obj == "visualizer"
+			a(ng-href='/#/users') List
+			a(ng-href='/#/users/new') Add
+			a(ng-href='/#/stats') Stats

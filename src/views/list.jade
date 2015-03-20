@@ -1,5 +1,7 @@
-a(ng-href='/#/users/new') Add
-a(ng-href='/#/visualizer') Visualizer
+include include/gnav.jade
+mixin gnav("list")
+
+h2 List
 
 input(ng-model='query', placeholder='Search for signs', autofocus)
 span {{(users|filter:query).length}}
@@ -27,3 +29,7 @@ table(border='1')
         td {{user.story}}
         td {{user.date}}
         td {{user.user}}
+
+div(ng-sparkline, ng-city="San Francisco", width='400', height='400')
+
+

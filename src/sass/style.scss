@@ -2,9 +2,75 @@
 
 /* js stats z-index: 100 */
 
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+ 
+.cf:after {
+    clear: both;
+}
+ 
+.cf {
+    *zoom: 1;
+}
+
 table {
     border-spacing: 0;
 }
 
 td {color: green}
-.angular-google-map-container { width: 600px; height: 600px; }
+
+li {
+	list-style: none;
+}
+
+nav {
+  a {
+    padding-right: 5px;
+  }
+}
+
+.angular-google-map-container {
+	width: 500px;
+	height: 500px;
+	float: left;
+}
+
+#story {
+	width: 500px;
+	height: 500px;
+	float: left;
+	color: #FFFFFF;
+	background: #000000;
+}
+
+.chartName,
+.chartName2 {
+	width: 150px;
+	float: left;
+}
+
+.chartBar,
+.chartBar2 {
+	margin-left: 15px;
+	float: left;
+}
+
+.chartName div,
+.chartName2 div {
+  margin: 1px;
+  text-align: right;
+  color: #0c160e;
+}
+
+.chartBar div,
+.chartBar2 div {
+  font: 10px sans-serif;
+  background-color: #d44085;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}

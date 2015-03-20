@@ -1,0 +1,50 @@
+include include/gnav.jade
+mixin gnav("stats")
+
+h2 Stats
+
+div(style="display:none")
+    h3 Country
+    div(ng-repeat="(key, value) in (numberByCountry = (users | countBy:'country'))")
+        div {{ key }} : {{ value }}
+
+    h3 Country2
+    div(ng-repeat="item in (numberByCountryObjectOrderBy = (numberByCountryObject | orderBy: 'number': true))")
+        div {{ item.country }} : {{ item.number }}
+
+
+    h3 Contribution
+    div(ng-repeat="(key, value) in (userByCount = (users | countBy:'user'))")
+        div {{ key }} : {{ value }}
+
+    h3 Contribution2
+        div(ng-repeat="item in (userByCountObjectOrderBy = (userByCountObject | orderBy: 'number': true))")
+            div {{ item.user }} : {{ item.number }}
+
+h3 Countries
+div.cf
+    div.chartName
+    div.chartBar
+
+h3 Contributors
+div.cf
+    div.chartName2
+    div.chartBar2
+
+
+
+//-select(ng-model="node", ng-repeat="(key, value) in users | groupBy:'country'")
+//-    option(value="{{value}}"){{key}}
+
+//-ul(ng-repeat="(key, value) in users | groupBy:'country'") Group name: {{ key }}
+    //- li(ng-repeat="player in value") player: {{ player.place }} 
+
+//-div(ng-repeat="(key, value) in users | groupBy:'country'") Group name: {{ key }}
+    //-script changeKey({{key}})
+
+select(ng-model="node" ng-options="user.place group by user.country for user in users")
+
+svg(width='720', height='120')
+    circle(cx='40', cy='60', r='10')
+    circle(cx='80', cy='60', r='10')
+    circle(cx='120', cy='60', r='10')

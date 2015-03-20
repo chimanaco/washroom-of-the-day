@@ -6,7 +6,7 @@
 */
 
 var express = require('express');
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');  // for id
 var mongodb = require('mongodb');
 
 var app = express();
@@ -17,7 +17,7 @@ app.use(express.static('dist'));
 app.use(express.static(__dirname + '/')); // for bower components
 app.use(express.static(__dirname + '/public'));
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 mongodb.MongoClient.connect("mongodb://localhost:27017/washroom", function(err, database) {
   db = database;

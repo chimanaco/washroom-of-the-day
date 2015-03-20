@@ -1,3 +1,8 @@
+include include/gnav.jade
+mixin gnav("edit")
+
+h2 Edit
+
 ul
     li Image
         input(ng-model='user.url')
@@ -6,11 +11,14 @@ ul
     li Address
         input(ng-model='user.address')
     li Country
-        input(ng-model='user.country')
+        input(ng-model='user.country') 
+        select(ng-model="node", ng-repeat="(key, value) in users | groupBy:'country'", ng-options="v for v in value")
+            option(value="''"){{key}}
+
     li Latitude
-        input(ng-model='user.latitude')
+        input(ng-model='user.coords.latitude')
     li Longitude
-        input(ng-model='user.longitude')
+        input(ng-model='user.coords.longitude')
     li Story
         input(ng-model='user.story')
     li User

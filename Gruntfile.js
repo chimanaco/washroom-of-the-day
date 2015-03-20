@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                 // cwd: '<%= path.source %>/views',
                 cwd: '<%= path.source %>/views/',
                 // src: ['**/!(_)*.jade','!test/**/*.jade'],
-                src: ['*.jade', '!_layout.jade', 'partials/*.jade'],
+                src: ['*.jade', '!_layout.jade','!include/**/*.jade', 'partials/*.jade'],
                 dest: '<%= path.publish %>',
                 ext: '.html'
             }
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
                     livereload: true
             },
             js: {
-                files: ['./src/**/*.js',　'./src/views/*.jade', './scss/*.scss', './src/**/*.html'],
+                files: ['./src/**/*.js',　'./src/views/*.jade', './src/sass/*.scss', './src/**/*.html'],
                 tasks: ['default']
             },
             gruntfile: {
