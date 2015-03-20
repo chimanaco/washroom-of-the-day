@@ -3,10 +3,10 @@ Washroom of the day
 
 WIP
 
-Signs list<br>
-Signs info editor<br>
-Visualizer<br>
-Stats<br>
+- Signs list
+- Signs info editor
+- Visualizer
+- Stats
 
 Install:
 <pre>$ cd /path/to/</pre>
