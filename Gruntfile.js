@@ -8,6 +8,13 @@ module.exports = function(grunt) {
             publish: 'dist'
         },
         // Task configuration.
+        browserify: {
+          dist: {
+            files: {
+              'dist/js/lib.js': ['public/lib/*.js'],
+            }
+          }
+        },
         clean: {
             build: ['<%= path.publish %>']
         },
@@ -88,7 +95,7 @@ module.exports = function(grunt) {
                     livereload: true
             },
             js: {
-                files: ['./src/**/*.js',　'./src/views/*.jade', './src/sass/*.scss', './src/**/*.html'],
+                files: ['./src/js/*.js',　'./src/js/**/*.js',　'./src/views/**/*.jade',　'./src/views/*.jade', './src/sass/*.scss', './src/**/*.html'],
                 tasks: ['default']
             },
             gruntfile: {
@@ -107,11 +114,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    
+    grunt.loadNpmTasks("grunt-browserify");
+
     // pre task.
     grunt.registerTask('go', ['connect', 'watch']);
 
     // Default task.    js -> html -> css
     // grunt.registerTask('default', ['jade', 'jshint', 'compass', 'uglify', 'clean', 'copy']);
-    grunt.registerTask('default', ['clean','jade', 'copy', 'compass']);
+    grunt.registerTask('default', ['clean','jade', 'copy', 'compass', "browserify"]);
 };

@@ -1,5 +1,6 @@
-dist/
-node_modules/
 .DS_Store
 .sass-cache
 bower_components/
+dist/
+node_modules/
+test/

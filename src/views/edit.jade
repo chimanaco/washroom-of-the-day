@@ -1,31 +1,48 @@
 include include/gnav.jade
 mixin gnav("edit")
 
-h2 Edit
+div(id='container' class='center-block')
+    h2 Edit
+     
+    ul(class='list-unstyled')
+        li Image
+            input(ng-model='user.url')
+        li ImageBig
+            input(ng-model='user.image')
+        li Place
+            input(ng-model='user.place')
+        li Address
+            input(ng-model='user.address')
+        li Country
+            input(ng-model='user.country') 
+            "{{countryList.name}}"
+            select(ng-model="countryList" ng-options="country.name for country in countries")
+                option(style="display:none", value="") select a place
+            
+            select(ng-model="node", ng-repeat="(key, value) in users | groupBy:'country'", ng-options="v for v in value")
+                option(value="''"){{key}}
 
-ul
-    li Image
-        input(ng-model='user.url')
-    li Place
-        input(ng-model='user.place')
-    li Address
-        input(ng-model='user.address')
-    li Country
-        input(ng-model='user.country') 
-        select(ng-model="node", ng-repeat="(key, value) in users | groupBy:'country'", ng-options="v for v in value")
-            option(value="''"){{key}}
+        li Latitude
+            input(ng-model='user.coords.latitude')
+        li Longitude
+            input(ng-model='user.coords.longitude')
+        li Story
+            input(ng-model='user.story')
+        li User
+            input(ng-model='user.user')
+            "{{contributorList.name}}"
+            select(ng-model="contributorList" ng-options="contributor.name for contributor in contributors")
+                option(style="display:none", value="") select a contributors
 
-    li Latitude
-        input(ng-model='user.coords.latitude')
-    li Longitude
-        input(ng-model='user.coords.longitude')
-    li Story
-        input(ng-model='user.story')
-    li User
-        input(ng-model='user.user')
-    li Date
-        input(ng-model='user.date', type='text', pick-a-date='date', pick-a-date-options='options', placeholder='Select Date')
-    
-button(ng-click='edit()') Register
 
-a(ng-href='/#/users') Back
+        li UserURL
+            input(ng-model='user.userurl')
+        li Date
+            //- input(ng-model='user.date', type='text', pick-a-date='date', pick-a-date-options='options', placeholder='Select Date')
+            input(ng-model='user.date')
+
+    div(style="display:inline-block; min-height:290px;")
+        datepicker(ng-model="user.date", min-date="minDate", datepicker-options="dateOptions", show-weeks="true", class="well well-sm")
+    div.clearfix
+        button(ng-click='edit()') Register
+        a(ng-href='/#/users') Back

@@ -20,9 +20,11 @@
   ],
   "dependencies": {
     "angular-google-maps": "~2.0.16",
-    "angular-native-picker": "~1.0.4",
     "threejs": "*",
     "stats.js": "*",
     "dat-gui": "~0.5.1"
+  },
+  "devDependencies": {
+    "angular-bootstrap": "~0.12.1"
   }
 }

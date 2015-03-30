@@ -2,7 +2,6 @@
   Base: 
   MongoDB+Express+AngularJS+Node.jsでシンプルなCRUDアプリ作成
   http://qiita.com/naga3/items/e63144e17cb1ab9e03e9
-
 */
 
 var express = require('express');
@@ -11,7 +10,7 @@ var mongodb = require('mongodb');
 
 var app = express();
 var BSON = mongodb.BSONPure;
-var db, users;
+var db, users, countries, contributors;
 
 app.use(express.static('dist'));
 app.use(express.static(__dirname + '/')); // for bower components
@@ -21,7 +20,9 @@ app.use(bodyParser.json());
 
 mongodb.MongoClient.connect("mongodb://localhost:27017/washroom", function(err, database) {
   db = database;
-  users = db.collection("users");
+  users = db.collection("users2");
+  countries = db.collection("countries");
+  contributors = db.collection("contributors");
   app.listen(3000);
 });
 
@@ -60,5 +61,33 @@ app.post("/api/users/:_id", function(req, res) {
 app.delete("/api/users/:_id", function(req, res) {
   users.remove({_id: new BSON.ObjectID(req.params._id)}, function() {
     res.send("delete");
+  });
+});
+
+// Get all countries
+app.get("/api/countries", function(req, res) {
+  countries.find().toArray(function(err, items) {
+    res.send(items);
+  });
+});
+
+// Get an country
+app.get("/api/countries/:_id", function(req, res) {
+  countries.findOne({_id: new BSON.ObjectID(req.params._id)}, function(err, item) {
+    res.send(item);
+  });
+});
+
+// Get all contributors
+app.get("/api/contributors", function(req, res) {
+  contributors.find().toArray(function(err, items) {
+    res.send(items);
+  });
+});
+
+// Get an contributor
+app.get("/api/contributors/:_id", function(req, res) {
+  contributors.findOne({_id: new BSON.ObjectID(req.params._id)}, function(err, item) {
+    res.send(item);
   });
 });

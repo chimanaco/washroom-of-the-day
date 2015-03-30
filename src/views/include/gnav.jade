@@ -1,18 +1,13 @@
 mixin gnav(obj)
-	nav
-		if obj == "list"
-			a(ng-href='/#/users/new') Add
-			a(ng-href='/#/visualizer') Visualizer
-			a(ng-href='/#/stats') Stats
-		if obj == "edit"
-			a(ng-href='/#/users') List
-			a(ng-href='/#/visualizer') Visualizer
-			a(ng-href='/#/stats') Stats
-		if obj == "stats"
-			a(ng-href='/#/users') List
-			a(ng-href='/#/users/new') Add
-			a(ng-href='/#/visualizer') Visualizer
-		if obj == "visualizer"
-			a(ng-href='/#/users') List
-			a(ng-href='/#/users/new') Add
-			a(ng-href='/#/stats') Stats
+	-var menu = { 'list': '/#/users', 'edit': '/#/users/new', 'visualizer': '/#/visualizer', 'stats': '/#/stats' };
+	-var selected = obj
+
+	ul(class='nav nav-tabs')
+		each val, key in menu
+			li
+				if selected === key
+					li.active(role="presentation")
+						a(ng-href=val, title=key)= key
+				else
+					li(role="presentation")
+						a(ng-href=val, title=key)= key

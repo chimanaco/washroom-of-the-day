@@ -1,28 +1,45 @@
 include include/gnav.jade
 mixin gnav("visualizer")
 
-h2 Visualizer
+div(id='container' class='center-block')
 
-select(ng-model="sel" ng-options="user.place group by user.country for user in users", ng-change="selectChange(sel)")
-	option(style="display:none", value="") select a place
+	h2 Visualizer
 
-input(ng-model='query', placeholder='Search for signs', autofocus, ng-change="change()")
+	select(ng-model="sel" ng-options="user.place group by user.country for user in users", ng-change="selectChange(sel)")
+		option(style="display:none", value="") select a place
 
-select(ng-model="mode",ng-init="mode='normal'", ng-change="selectMode(mode)")
-	option(value="normal") normal
-	option(value="loop") loop
+	input(ng-model='query', placeholder='Search for signs', autofocus, ng-change="change()")
 
-input(ng-model='duration', ng-init='duration="1000"', ng-change="durationChange(duration)")
+	select(ng-model="mode",ng-init="mode='normal'", ng-change="selectMode(mode)")
+		option(value="normal") normal
+		option(value="loop") loop
 
-ui-gmap-google-map(events='map.events', center='map.center', zoom='map.zoom')
-	ui-gmap-marker(ng-repeat="m in users | filter: ddSelectSelected.text", coords="m.coords", idkey="m._id", icon="m.url" )
-		ui-gmap-window(coords="m.infoWindow.coords", isIconVisibleOnClick="true", options="m.infoWindow.options" ng-cloak)
-			div
-				p {{ m.place }}<br>{{ m.address }}<br>by {{ m.user }}!
-div#story
-	ul
-		li Place: {{place}}
-		li Country: {{country}}
-		li Date: {{date}}
-		li Story: {{story}}
-		li Found by: {{user}}
+	input(ng-model='duration', ng-init='duration="1000"', ng-change="durationChange(duration)")
+
+	ui-gmap-google-map(events='map.events', center='map.center', zoom='map.zoom')
+		//- ui-gmap-marker(ng-repeat="m in users | filter: ddSelectSelected.text", coords="m.coords", idkey="m._id", icon="m.url" )
+		ui-gmap-marker(ng-repeat="m in users | filter: ddSelectSelected.text", coords="m.coords", idkey="m._id" )
+			ui-gmap-window(coords="m.infoWindow.coords", isIconVisibleOnClick="true", options="m.infoWindow.options" ng-cloak)
+				div
+					p {{ m.place }}<br>{{ m.address }}<br>by {{ m.user }}!
+
+	div.media#story
+		div.media-left
+			img(src='{{image}}')
+
+		div.media-body
+			//- h3.media-heading {{place}}
+
+			ul(class='list-unstyled')
+				li Place: {{place}}
+				li Country: {{country}}
+				li Date: {{date}}
+				li Story: {{story}}
+				li Found by: {{user}}
+
+			//- ul(class='list-unstyled')
+			//- li Place: {{place}}
+			//-	li Country: {{country}}
+			//-	li Date: {{date}}
+			//-	li Story: {{story}}
+			//-	li Found by: {{user}}
