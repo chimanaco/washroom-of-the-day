@@ -1,9 +1,9 @@
 include include/gnav.jade
-mixin gnav("Visualizer")
+mixin gnav("Map")
 
 div(id='container' class='center-block')
 
-	h2 Visualizer
+	h2 Map
 
 	select(ng-model="sel" ng-options="user.place group by user.country for user in users", ng-change="changeSelection(sel)")
 		option(style="display:none", value="") select a place

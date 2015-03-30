@@ -1,40 +1,26 @@
 include include/gnav.jade
-mixin gnav("List")
+mixin gnav("ListUser")
 
 div(id='container' class='center-block')
 
-    h2 List
+    h2 ListUser
 
     input(ng-model='query', placeholder='Search for signs', autofocus)
     span {{(users|filter:query).length}}
 
     table(class='table table-striped')
         tr
-            th &nbsp;
             th Image
             th Place
-            th Address
             th Country
-            th Coords
-            th Story
             th Date
             th User
-            th User URL
         tr(ng-repeat="user in users | filter: query | orderBy:'date':true")
-            td
-                a(ng-href='#/users/{{user._id}}') Edit
             td
                 img(src="{{user.url}}", width="50", height="50")
             td {{user.place}}
-            td {{user.address}}
             td {{user.country}}
-            td {{user.coords.latitude}}, {{user.coords.longitude}}
-            td {{user.story}}
             td {{user.date}}
             td 
                 a(href='{{user.userurl}}') {{user.user}}
-            td {{user.userurl}}
-
-    //- div(ng-sparkline, ng-city="San Francisco", width='400', height='400')
-
 

@@ -5,7 +5,9 @@ var app = angular.module('app', [
     'ui.bootstrap',
     'uiGmapgoogle-maps',
     'app.edit',
+    'app.map',
     'app.list',
+    'app.listUser',
     'app.stats',
     'app.visualizer'
 ]);

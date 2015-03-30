@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: { 
-                    port: 9000,
+                    port: 3000,
                     base: '<%= path.publish %>'
                 }
             }
