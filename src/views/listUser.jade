@@ -5,13 +5,14 @@ div(id='container' class='center-block')
 
     h2 ListUser
 
-    input(ng-model='query', placeholder='Search for signs', autofocus)
-    span {{(users|filter:query).length}}
+    input(class='form-control', ng-model='query', placeholder='Search for signs', autofocus)
+    p {{(users|filter:query).length}}
 
     table(class='table table-striped')
         tr
             th Image
             th Place
+            th Address
             th Country
             th Date
             th User
@@ -19,6 +20,7 @@ div(id='container' class='center-block')
             td
                 img(src="{{user.url}}", width="50", height="50")
             td {{user.place}}
+            td {{user.address}}
             td {{user.country}}
             td {{user.date}}
             td 
